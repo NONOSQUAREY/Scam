@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-pixel {
+    font-family: 'Press Start 2P', monospace;
+  }
+  .font-mono-term {
+    font-family: 'VT323', 'JetBrains Mono', monospace;
+  }
+  .font-display {
+    font-family: 'Chakra Petch', sans-serif;
+  }
+  
+  .text-glow-green {
+    text-shadow: 0 0 8px rgba(34, 197, 94, 0.7), 0 0 20px rgba(34, 197, 94, 0.4);
+  }
+  .text-glow-amber {
+    text-shadow: 0 0 8px rgba(245, 158, 11, 0.7), 0 0 20px rgba(245, 158, 11, 0.4);
+  }
+  .text-glow-red {
+    text-shadow: 0 0 8px rgba(239, 68, 68, 0.7), 0 0 20px rgba(239, 68, 68, 0.4);
+  }
+  .text-glow-cyan {
+    text-shadow: 0 0 8px rgba(6, 182, 212, 0.7), 0 0 20px rgba(6, 182, 212, 0.4);
+  }
+  
+  .box-glow-green {
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.25), inset 0 0 10px rgba(34, 197, 94, 0.1);
+  }
+  .box-glow-amber {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.25), inset 0 0 10px rgba(245, 158, 11, 0.1);
+  }
+  .box-glow-red {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.35), inset 0 0 15px rgba(239, 68, 68, 0.2);
+  }
+
+  .scanlines {
+    background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%, 
+      rgba(0, 0, 0, 0.3) 50%
+    ), linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.03),
+      rgba(0, 255, 0, 0.01),
+      rgba(0, 0, 255, 0.03)
+    );
+    background-size: 100% 4px, 6px 100%;
+    pointer-events: none;
+  }
+}
+
+@keyframes pulse-fast {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.02); }
+}
+
+.animate-pulse-fast {
+  animation: pulse-fast 1s infinite;
+}
+
+/* Custom cartoonish cursors matching Scam With Your Friends retro cartoon aesthetic */
+:root {
+  /* 1. Cartoon Arrow (Default) */
+  --cursor-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M3 2L20 16L12.5 17L17 26.5L13 28.5L8.5 18.5L3 23.5V2Z' fill='rgba(0,0,0,0.45)' transform='translate(2, 2)'/%3E%3Cpath d='M3 2L20 16L12.5 17L17 26.5L13 28.5L8.5 18.5L3 23.5V2Z' fill='%23000000' stroke='%23000000' stroke-width='2.6' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpath d='M4.5 4.5L17.2 15L11.2 15.8L15.2 24.5L13.2 25.5L9.2 17L4.5 21V4.5Z' fill='%23ffffff'/%3E%3C/svg%3E") 3 2, default;
+
+  /* 2. Cartoon Pointer (Glove pointing finger) */
+  --cursor-pointer: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M10 2C8.9 2 8 2.9 8 4V13.2L6.8 12.3C5.9 11.6 4.6 11.7 3.9 12.6C3.2 13.5 3.3 14.8 4.2 15.5L10 20.5V27H21V19L22.5 12.5C22.7 11.4 21.9 10.3 20.8 10.1C20.5 10 20.2 10 19.9 10.1L19 10.3V8C19 6.9 18.1 6 17 6C16.6 6 16.2 6.1 15.9 6.3C15.6 5.5 14.9 5 14 5C13.8 5 13.5 5 13.3 5.1C12.9 3.9 12 3 11 3Z' fill='rgba(0,0,0,0.45)' transform='translate(2, 2)'/%3E%3Cpath d='M10 2C8.9 2 8 2.9 8 4V13.2L6.8 12.3C5.9 11.6 4.6 11.7 3.9 12.6C3.2 13.5 3.3 14.8 4.2 15.5L10 20.5V27H21V19L22.5 12.5C22.7 11.4 21.9 10.3 20.8 10.1C20.5 10 20.2 10 19.9 10.1L19 10.3V8C19 6.9 18.1 6 17 6C16.6 6 16.2 6.1 15.9 6.3C15.6 5.5 14.9 5 14 5C13.8 5 13.5 5 13.3 5.1C12.9 3.9 12 3 11 3Z' fill='%23000000' stroke='%23000000' stroke-width='2.6' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpath d='M10 3.5C9.4 3.5 9 3.9 9 4.5V14.5L6.5 12.7C5.9 12.2 5.1 12.3 4.6 12.9C4.1 13.5 4.2 14.3 4.8 14.8L10.5 19.7V25.5H19.5V18.5L21 12.2C21.1 11.6 20.6 11 20 10.9C19.8 10.8 19.6 10.8 19.4 10.9L17.5 11.3V8C17.5 7.4 17.1 7 16.5 7C16 7 15.5 7.4 15.5 8V11H14.5V6.5C14.5 5.9 14.1 5.5 13.5 5.5C13 5.5 12.5 5.9 12.5 6.5V11H11.5V5.5C11.5 4.9 11.1 4.5 10.5 4.5C10.5 3.9 10.1 3.5 10 3.5Z' fill='%23ffffff'/%3E%3C/svg%3E") 9 2, pointer;
+
+  /* 3. Cartoon Grab (Open 4-finger cartoon glove ready to drag) */
+  --cursor-grab: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M7 11C6 11 5 12 5 13.5V17L3.8 15.5C3 14.6 1.8 14.5 1 15.3C0.2 16.1 0.1 17.3 1 18.2L6 24C8 26.5 11 28 14.5 28H17C21 28 24 25 24 21V14C24 12.9 23.1 12 22 12C21.6 12 21.2 12.1 20.9 12.3C20.6 11.5 19.9 11 19 11C18.7 11 18.4 11.1 18.1 11.2C17.8 10.5 17 10 16 10C15.7 10 15.4 10.1 15.1 10.2C14.8 9.5 14 9 13 9C11.9 9 11 9.9 11 11V13H10V12C10 11.4 9.6 11 9 11H7Z' fill='rgba(0,0,0,0.45)' transform='translate(2, 2)'/%3E%3Cpath d='M7 11C6 11 5 12 5 13.5V17L3.8 15.5C3 14.6 1.8 14.5 1 15.3C0.2 16.1 0.1 17.3 1 18.2L6 24C8 26.5 11 28 14.5 28H17C21 28 24 25 24 21V14C24 12.9 23.1 12 22 12C21.6 12 21.2 12.1 20.9 12.3C20.6 11.5 19.9 11 19 11C18.7 11 18.4 11.1 18.1 11.2C17.8 10.5 17 10 16 10C15.7 10 15.4 10.1 15.1 10.2C14.8 9.5 14 9 13 9C11.9 9 11 9.9 11 11V13H10V12C10 11.4 9.6 11 9 11H7Z' fill='%23000000' stroke='%23000000' stroke-width='2.6' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpath d='M7 12.5C6.4 12.5 6.2 12.9 6.2 13.5V17.5L3.5 14.8C3.1 14.4 2.4 14.5 2 14.9C1.6 15.3 1.6 16 2.1 16.5L7 22C8.6 24 11.1 25.2 14 25.2H16.2C19.5 25.2 22 22.8 22 19.5V14C22 13.4 21.6 13 21 13C20.4 13 20 13.4 20 14V16H18.5V13C18.5 12.4 18.1 12 17.5 12C16.9 12 16.5 12.4 16.5 13V16H15V12C15 11.4 14.6 11 14 11C13.4 11 13 11.4 13 12V16H11.5V12.5C11.5 11.9 11.1 11.5 10.5 11.5C9.9 11.5 9.5 11.9 9.5 12.5V16H8.2V12.5H7Z' fill='%23ffffff'/%3E%3C/svg%3E") 12 12, grab;
+
+  /* 4. Cartoon Grabbing (Clenched fist glove during active dragging) */
+  --cursor-grabbing: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M5 13C5 10.5 7 8.5 9.5 8.5H17.5C20 8.5 22 10.5 22 13V14.5C22.8 14.5 23.5 15.2 23.5 16.5C23.5 17.8 22.8 18.5 22 18.8V20C22 22.5 20 24.5 17.5 24.5H9.5C7 24.5 5 22.5 5 20V13Z' fill='rgba(0,0,0,0.45)' transform='translate(2, 2)'/%3E%3Cpath d='M5 13C5 10.5 7 8.5 9.5 8.5H17.5C20 8.5 22 10.5 22 13V14.5C22.8 14.5 23.5 15.2 23.5 16.5C23.5 17.8 22.8 18.5 22 18.8V20C22 22.5 20 24.5 17.5 24.5H9.5C7 24.5 5 22.5 5 20V13Z' fill='%23000000' stroke='%23000000' stroke-width='2.6' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpath d='M6.5 13C6.5 11.5 7.8 10 9.5 10H17.5C19.2 10 20.5 11.5 20.5 13V20C20.5 21.7 19.2 23 17.5 23H9.5C7.8 23 6.5 21.7 6.5 20V13Z' fill='%23ffffff'/%3E%3Cpath d='M9.5 13.5H17M9.5 16.5H17.5M9.5 19.5H16.5' stroke='%23000000' stroke-width='2' stroke-linecap='round'/%3E%3Cpath d='M5.5 15C4.5 16 4.5 18 6 19.5C7.5 21 9 21 10 20.5' stroke='%23000000' stroke-width='2.4' fill='%23ffffff' stroke-linecap='round'/%3E%3C/svg%3E") 12 12, grabbing;
+
+  /* 5. Cartoon Text (Retro I-Beam) */
+  --cursor-text: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M8 4H24V8H18.5V24H24V28H8V24H13.5V8H8V4Z' fill='rgba(0,0,0,0.45)' transform='translate(1.5, 1.5)'/%3E%3Cpath d='M8 4H24V8H18.5V24H24V28H8V24H13.5V8H8V4Z' fill='%23000000' stroke='%23000000' stroke-width='2.6' stroke-linejoin='round' stroke-linecap='round'/%3E%3Cpath d='M9.5 5.5H22.5V6.8H16V25.2H22.5V26.5H9.5V25.2H16V6.8H9.5V5.5Z' fill='%23ffffff'/%3E%3C/svg%3E") 16 16, text;
+
+  /* 6. Cartoon Not Allowed */
+  --cursor-not-allowed: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Ccircle cx='16' cy='16' r='11' fill='rgba(0,0,0,0.45)' transform='translate(2, 2)'/%3E%3Ccircle cx='16' cy='16' r='11' fill='%23000000' stroke='%23000000' stroke-width='2.6'/%3E%3Ccircle cx='16' cy='16' r='9.5' fill='%23ef4444' stroke='%23ffffff' stroke-width='1.8'/%3E%3Cline x1='8.5' y1='8.5' x2='23.5' y2='23.5' stroke='%23ffffff' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E") 16 16, not-allowed;
+}
+
+/* Ensure ALL elements on the page exclusively use cartoon cursors */
+*, *::before, *::after {
+  cursor: inherit;
+}
+
+html, body, #root {
+  cursor: var(--cursor-arrow) !important;
+}
+
+/* Interactive elements */
+button,
+a,
+select,
+input[type="button"],
+input[type="submit"],
+input[type="checkbox"],
+input[type="radio"],
+.cursor-pointer,
+[role="button"],
+[tabindex="0"] {
+  cursor: var(--cursor-pointer) !important;
+}
+
+/* Draggable & Move areas (hover) */
+.cursor-move,
+.cursor-grab,
+[style*="cursor: move"],
+[style*="cursor:move"],
+[style*="cursor: grab"],
+[style*="cursor:grab"] {
+  cursor: var(--cursor-grab) !important;
+}
+
+/* Active dragging state */
+.cursor-grabbing,
+.is-dragging,
+.is-dragging *,
+body.is-dragging,
+body.is-dragging *,
+.active-dragging,
+.active-dragging *,
+:active.cursor-move,
+:active.cursor-grab,
+.cursor-move:active,
+.cursor-grab:active,
+[style*="cursor: grabbing"],
+[style*="cursor:grabbing"] {
+  cursor: var(--cursor-grabbing) !important;
+}
+
+/* Text editing inputs */
+.cursor-text,
+input[type="text"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+textarea {
+  cursor: var(--cursor-text) !important;
+}
+
+/* Disabled elements */
+:disabled,
+button:disabled,
+input:disabled,
+.cursor-not-allowed,
+[style*="cursor: not-allowed"],
+[style*="cursor:not-allowed"] {
+  cursor: var(--cursor-not-allowed) !important;
+}
+
+/* Cartoonish aesthetic drop-shadows & glass effects */
+.cartoon-card {
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.4), 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+.cartoon-card-sm {
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.35), 0 6px 16px rgba(0, 0, 0, 0.5);
+}
+.cartoon-btn {
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.3);
+  transition: all 0.1s ease;
+}
+.cartoon-btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Custom scrollbar for game panels */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+.phone-chat-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.phone-chat-scroll::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 9999px;
+}
+.phone-chat-scroll::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.3);
+  border-radius: 9999px;
+}
+.phone-chat-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.6);
+}

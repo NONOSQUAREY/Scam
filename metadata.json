@@ -1,0 +1,10 @@
+{
+  "name": "Scam With Your Friends: Hotline Tycoon 2D",
+  "description": "An endless 2D parody call-center hotline game powered by Gemini 2.5 Flash-Lite, featuring realistic TTS voices, random callers with fake credit cards, money counter, soundboards, and hilarious dialogues.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "display-capture"
+  ],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
